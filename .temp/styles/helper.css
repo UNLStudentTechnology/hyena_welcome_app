@@ -1,0 +1,25 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/helper\.scss}line{font-family:\000031}}
+.align-center {
+  text-align: center;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/helper\.scss}line{font-family:\000035}}
+.align-right {
+  text-align: right;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/helper\.scss}line{font-family:\000039}}
+.padding-none {
+  padding: 0 !important;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/helper\.scss}line{font-family:\0000313}}
+.margin-none {
+  margin: 0 !important;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/helper\.scss}line{font-family:\0000317}}
+.anchor-bottom {
+  bottom: 0;
+  position: absolute !important;
+}

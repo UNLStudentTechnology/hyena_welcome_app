@@ -1,0 +1,16 @@
+<ion-view view-title="Activity">
+	<ion-content>
+		<div class="padding-horizontal" ng-show="pendingAction">
+			<button class="button button-balanced button-block" ng-click="activityModal.show()">Tap to confirm your movement</button>
+		</div>
+		<div class="row" ng-hide="activities.length > 0">
+			<div class="col text-center"><ion-spinner></ion-spinner></div>
+		</div>
+		<ion-list>
+		  	<ion-item collection-repeat="activity in activities | orderBy:'created_at':true">
+    			<h3>{{activity.action === 1 ? 'Coming in' : 'Going out'}}</h3>
+	    		<p>{{activity.created_at | amCalendar}}</p>
+		  	</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
