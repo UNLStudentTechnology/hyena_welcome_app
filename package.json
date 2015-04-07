@@ -1,8 +1,10 @@
 {
   "name": "HyenaWelcome",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "express": "~4.4.3"
+  },
   "devDependencies": {
     "grunt": "~0.4.5",
     "glob": "~4.3.5",
