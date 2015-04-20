@@ -2,7 +2,7 @@
   "name": "HyenaWelcome",
   "version": "0.1.0",
   "dependencies": {
-    "ionic": "v1.0.0-rc.2",
+    "ionic": "v1.0.0-rc.3",
     "ngCordova": "0.1.12-alpha",
     "angular-moment": "~0.9.2",
     "hyena-angular": "~0.2.2",

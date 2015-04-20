@@ -1,0 +1,62 @@
+// Variables
+$brand:			#DA1A32;
+
+$light:         #fff;
+$stable:        #f8f8f8;
+$positive:      $brand;
+$calm:          #43cee6;
+$balanced:      #66cc33;
+$energized:     #f0b840;
+$assertive:     #ef4e3a;
+$royal:         #8a6de9;
+$dark:          #444;
+$muted:			#A0A1A3;
+
+// Default Variables
+@import 'helper';
+@import 'flex';
+@import 'forms';
+@import '../bower_components/ionic/scss/ionic';
+
+/* Text Modifiers */
+.text-small {
+	font-size: 75%;
+}
+
+.text-center {
+	text-align: center;
+}
+
+/* Text Colors */
+.color-assertive {
+	color: $assertive;
+}
+
+.color-balanced {
+	color: $balanced;
+}
+
+.color-muted {
+	color: $muted;
+}
+
+/* Icon Sizes */
+.icon-xl {
+	height: 128px;
+	font-size: 128px;
+	width: 128px;
+}
+
+/* Bar Brand */
+.bar {
+	&.bar-brand {
+		@include bar-style($brand, $brand, $bar-positive-text);
+		&.bar-footer{
+			background-image: linear-gradient(180deg, $brand, $brand 50%, transparent 50%);
+		}
+
+		.button {
+			color: #fff;
+		}
+	}
+}

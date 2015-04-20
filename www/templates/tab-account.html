@@ -1,1 +1,14 @@
-<ion-view view-title="Account"><ion-content><div class="list"><div class="item item-avatar" href="#"><img src="{{currentUser.profile_image}}"><h2>{{currentUser.first_name}} {{currentUser.last_name}}</h2><p>Currently: {{user.currently || 'Unknown'}}</p></div></div><div class="padding"><button ng-click="logOutCurrentUser()" class="button button-block button-stable">Log Out</button></div></ion-content></ion-view>
+<ion-view view-title="Account">
+  <ion-content>
+    <div class="list">
+		<div class="item item-avatar" href="#">
+			<img src="{{currentUser.profile_image}}">
+			<h2>{{currentUser.first_name}} {{currentUser.last_name}}</h2>
+			<p>Currently: {{user.currently || 'Unknown'}}</p>
+		</div>
+	</div>
+	<div class="padding">
+		<button ng-click="logOutCurrentUser()" class="button button-block button-stable">Log Out</button>
+	</div>
+  </ion-content>
+</ion-view>

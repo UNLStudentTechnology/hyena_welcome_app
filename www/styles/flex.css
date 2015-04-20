@@ -1,0 +1,263 @@
+/*******************************
+          Flex Layout
+*******************************/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\000035}}
+html [layout][horizontal], html [layout][vertical] {
+  display: -webkit-flex;
+  display: flex;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000311}}
+html [layout][horizontal][inline], html [layout][vertical][inline] {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000317}}
+html [layout][horizontal] {
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000323}}
+html [layout][horizontal][reverse] {
+  -webkit-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000329}}
+html [layout][vertical] {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000335}}
+html [layout][vertical][reverse] {
+  -webkit-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000341}}
+html [layout][wrap] {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000347}}
+html [layout][wrap-reverse] {
+  -webkit-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000353}}
+html [flex] {
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000361}}
+html [vertical][layout] > [flex][auto-vertical], html [vertical][layout]::shadow [flex][auto-vertical] {
+  -ms-flex: 1 1 auto;
+  -webkit-flex-basis: auto;
+          flex-basis: auto;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000367}}
+html [flex][auto] {
+  -ms-flex: 1 1 auto;
+  -webkit-flex-basis: auto;
+          flex-basis: auto;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000373}}
+html [flex][none] {
+  -webkit-flex: none;
+  flex: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000379}}
+html [flex][one] {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000385}}
+html [flex][two] {
+  -webkit-flex: 2;
+  flex: 2;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000391}}
+html [flex][three] {
+  -webkit-flex: 3;
+  flex: 3;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\0000397}}
+html [flex][four] {
+  -webkit-flex: 4;
+  flex: 4;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003103}}
+html [flex][five] {
+  -webkit-flex: 5;
+  flex: 5;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003109}}
+html [flex][six] {
+  -webkit-flex: 6;
+  flex: 6;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003115}}
+html [flex][seven] {
+  -webkit-flex: 7;
+  flex: 7;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003121}}
+html [flex][eight] {
+  -webkit-flex: 8;
+  flex: 8;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003127}}
+html [flex][nine] {
+  -webkit-flex: 9;
+  flex: 9;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003133}}
+html [flex][ten] {
+  -webkit-flex: 10;
+  flex: 10;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003139}}
+html [flex][eleven] {
+  -webkit-flex: 11;
+  flex: 11;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003145}}
+html [flex][twelve] {
+  -webkit-flex: 12;
+  flex: 12;
+}
+
+/* alignment in cross axis */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003153}}
+html [layout][start] {
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003159}}
+html [layout][center], html [layout][center-center] {
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003165}}
+html [layout][end] {
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+
+/* alignment in main axis */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003173}}
+html [layout][start-justified] {
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003179}}
+html [layout][center-justified], html [layout][center-center] {
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003185}}
+html [layout][end-justified] {
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003191}}
+html [layout][around-justified] {
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003197}}
+html [layout][justified] {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+/* self alignment */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003205}}
+html [self-start] {
+  -ms-align-self: flex-start;
+  -webkit-align-self: flex-start;
+          align-self: flex-start;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003211}}
+html [self-center] {
+  -ms-align-self: center;
+  -webkit-align-self: center;
+          align-self: center;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003217}}
+html [self-end] {
+  -ms-align-self: flex-end;
+  -webkit-align-self: flex-end;
+          align-self: flex-end;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003223}}
+html [self-stretch] {
+  -ms-align-self: stretch;
+  -webkit-align-self: stretch;
+          align-self: stretch;
+}
+
+/*******************************
+          Other Layout
+*******************************/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003233}}
+html [block] {
+  display: block;
+}
+
+/* ie support for hidden */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003238}}
+html [hidden] {
+  display: none !important;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003242}}
+html [relative] {
+  position: relative;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003246}}
+html [fit] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/styles\/flex\.scss}line{font-family:\00003254}}
+body[fullbleed] {
+  margin: 0;
+  height: 100vh;
+}

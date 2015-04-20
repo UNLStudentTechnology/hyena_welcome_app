@@ -10,10 +10,24 @@
       <i class="icon ion-ios-navigate-outline icon-xl"></i>
       <p>Let us know if you are coming in, going out, or if we made a mistake in alerting you.</p>
     </div>
-    <div class="button-bar padding">
-      <button class="button button-positive" ng-click="coming()">Coming</button>
-      <button class="button button-positive" ng-click="going()">Going</button>
-      <button class="button button-stable" ng-click="disregard()">Disregard</button>
+    <div class="list">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Current Location
+        </div>
+        <select name="location-select" ng-model="viewData.selectedLocation">
+          <optgroup label="{{group.title}}" ng-repeat="group in currentUser.groups | orderBy:'title'" ng-if="groupLocations[group.id].length > 0">
+            <option value="{{location.$id}}" ng-repeat="location in groupLocations[group.id] | orderBy:'title'">{{location.title}}</option>
+          </optgroup>
+        </select>
+      </label>
+      <div class="item">
+        <div class="button-bar">
+          <button ng-disabled="!viewData.selectedLocation" class="button button-stable" ng-click="coming()">Coming</button>
+          <button ng-disabled="!viewData.selectedLocation" class="button button-stable" ng-click="going()">Going</button>
+          <button class="button button-stable" ng-click="disregard()">Disregard</button>
+        </div>
+      </div>
     </div>
   </ion-content>
 </ion-modal-view>
