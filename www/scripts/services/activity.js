@@ -27,9 +27,10 @@ angular.module('hyenaWelcomeApp')
 		* @param  int limit   Number of items to return
 		* @return promise
 		*/
-		userActivities: function getUserActivities(userId, limit) {
+		userActivities: function getUserActivities(userId, groupId, limit) {
 			limit = limit || 20;
-			var activities = activityRef.child('/users/'+userId+'/activities');
+			groupId = parseInt(groupId);
+			var activities = activityRef.child('/users/'+userId+'/activities/'+groupId);
 			return $firebase(activities);
 		},
 		/**
@@ -38,7 +39,7 @@ angular.module('hyenaWelcomeApp')
 		 * @param int 		userId
 		 */
 		add: function addActivity(activity, userId, location) {
-    		return $firebase(activityRef.child('/users/'+userId+'/activities')).$push(activity).then(function(response) {
+    		return $firebase(activityRef.child('/users/'+userId+'/activities/'+location.group_id)).$push(activity).then(function(response) {
 				//Add a reference to the group
 				//If action = 1 (is at location), set as active location, else set false
 				if(activity.action === 1) {

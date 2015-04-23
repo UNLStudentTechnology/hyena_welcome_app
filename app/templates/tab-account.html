@@ -4,8 +4,15 @@
 		<div class="item item-avatar" href="#">
 			<img src="{{currentUser.profile_image}}">
 			<h2>{{currentUser.first_name}} {{currentUser.last_name}}</h2>
-			<p>Currently: {{user.currently || 'Unknown'}}</p>
+			<p>Currently: {{user.currently || 'Out'}}</p>
 		</div>
+		<label class="item item-input item-select">
+	        <div class="input-label">
+	        	Active Group
+	        </div>
+	        <select name="group-select" ng-model="viewData.activeGroupId" ng-options="group.id*1 as group.title for group in currentUser.groups | orderBy:'title'" ng-change="updateGroupData()">
+	        </select>
+      	</label>
 	</div>
 	<div class="padding">
 		<button ng-click="logOutCurrentUser()" class="button button-block button-stable">Log Out</button>

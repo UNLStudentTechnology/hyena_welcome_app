@@ -16,15 +16,13 @@
           Current Location
         </div>
         <select name="location-select" ng-model="viewData.selectedLocation">
-          <optgroup label="{{group.title}}" ng-repeat="group in currentUser.groups | orderBy:'title'" ng-if="groupLocations[group.id].length > 0">
-            <option value="{{location.$id}}" ng-repeat="location in groupLocations[group.id] | orderBy:'title'">{{location.title}}</option>
-          </optgroup>
+          <option value="{{key}}" ng-repeat="(key, location) in viewData.groupLocations[viewData.activeGroupId] | orderBy:'title'">{{location.title}}</option>
         </select>
       </label>
       <div class="item">
         <div class="button-bar">
-          <button ng-disabled="!viewData.selectedLocation" class="button button-stable" ng-click="coming()">Coming</button>
-          <button ng-disabled="!viewData.selectedLocation" class="button button-stable" ng-click="going()">Going</button>
+          <button ng-disabled="!viewData.selectedLocation" class="button button-stable" ng-click="coming()">Entering</button>
+          <button ng-disabled="!viewData.selectedLocation" class="button button-stable" ng-click="going()">Leaving</button>
           <button class="button button-stable" ng-click="disregard()">Disregard</button>
         </div>
       </div>

@@ -30,16 +30,28 @@ angular.module('hyenaWelcomeApp')
 			return $firebase(locationRef.child('locations').orderByChild("proximity_uuid").equalTo(uuid).limitToFirst(1));
 		},
 		/**
+		* Gets a specific location
+		* @param  string major
+		* @return promise
+		*/
+		getByMajor: function getByMajor(major) {
+			major = parseInt(major);
+			return $firebase(locationRef.child('locations').orderByChild("beacon_major").equalTo(major).limitToFirst(1));
+		},
+		/**
 		* Get all locations associated with a group
 		* @param  int groupId Group ID
 		* @param  int limit   Number of items to return
 		* @return promise
 		*/
 		groupLocations: function getGroupLocations(groupId, limit) {
-			limit = limit || 20;
+			limit = limit || 30;
 			groupId = parseInt(groupId);
 			var locations = locationRef.child('locations').orderByChild("group_id").equalTo(groupId).limitToFirst(limit);
 			return $firebase(locations);
+		},
+		getGroup: function getGroup(groupId) {
+			return $firebase(locationRef.child('/groups/'+groupId));
 		},
 		/**
 		 * Adds a new welcome location to the specified group

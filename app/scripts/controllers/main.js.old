@@ -1,0 +1,206 @@
+/* global moment */
+'use strict';
+
+angular.module('hyenaWelcomeApp')
+.controller('MainCtrl', function ($scope, $rootScope, $ionicModal, $timeout, $cordovaLocalNotification, $cordovaStatusbar, ActivityService, AuthService, ngEstimote, UserService, LocationService) {
+	//Declare Variables
+    $scope.activities = null;
+	$scope.user = null;
+	$scope.activityModal = null;
+	$scope.pendingAction = false;
+    $scope.viewData = {};
+    $scope.viewData.selectedLocation = "";
+    //Hold the currently active iBeacon
+    var beaconHistory = {
+        previousBeacon: {},
+        rangedCount: 0
+    };
+
+	//Temporary for demo
+	UserService.get('hgascoigne2', 'groups').then(function(response) {
+		$scope.currentUser = response.data;
+	});
+
+	// $timeout(function() {
+ //    	$scope.pendingAction = true;
+	// 	$scope.showActivityModal();
+	// }, 3000);
+
+    $scope.groupLocations = {};
+
+	//Wait till user loads
+	$scope.$watch('currentUser', function(value, existingValue) {
+		if(value !== null && existingValue === null) {
+        	var user = ActivityService.user($scope.currentUser.uni_auth).$asObject();
+        	user.$bindTo($scope, 'user');
+            $scope.activities = ActivityService.userActivities($scope.currentUser.uni_auth).$asArray();
+            $scope.startRangingBeacons();
+
+            //Get a list of locations for the groups that the user belongs to
+            for (var i = 0; i < $scope.currentUser.groups.length; i++) {
+                $scope.groupLocations[$scope.currentUser.groups[i].id] = LocationService.groupLocations($scope.currentUser.groups[i].id).$asArray();
+            }
+        }
+    });
+
+    // Create the login modal that we will use later
+	$ionicModal.fromTemplateUrl('templates/activity-action.html', {
+		scope: $scope
+	}).then(function(modal) {
+		$scope.activityModal = modal;
+	});
+
+    //If a change is detected, fire a notification and show the activity modal
+    $scope.locationChangeDetected = function(beacons, fireNotification) {
+        fireNotification = fireNotification || true;
+
+        //Check and see if beacons are found
+        if(beacons.length > 0) {
+            //Get closest beacon
+            beacons.sort(function(beacon1, beacon2) {
+                return beacon1.distance > beacon2.distance;
+            });
+
+            var currentBeacon = beacons[0];
+            console.log(currentBeacon);
+            //Check and see if you're at a new beacon
+            if(angular.isUndefined(beaconHistory.previousBeacon.proximityUUID) || (currentBeacon.proximityUUID !== beaconHistory.previousBeacon.proximityUUID))
+            {
+                console.log('** NEW BEACON FOUND **', currentBeacon.proximityUUID);
+                var locationByUUID = LocationService.getByUUID(currentBeacon.proximityUUID).$asArray();
+                locationByUUID.$loaded().then(function(location) {
+                    location = location[0];
+                    console.log(location);
+                    console.log('** LOCATION **', location.group_id);
+                    //Check and see if this location belongs to one of the user's groups
+                    var isGroupLocation = false;
+                    for (var i = 0; i < $scope.currentUser.groups.length; i++) {
+                        if($scope.currentUser.groups[i].id === location.group_id) {
+                            isGroupLocation = true;
+                            break;
+                        }
+                    }
+
+                    if(isGroupLocation) {
+                        console.log('HEY THIS IS MINE');
+                        //Set the currently selected location
+                        $scope.viewData.selectedLocation = location.$id;
+                    
+                        //Check and see if coming or going
+                        //If the current number of beacons is greater than the previous number, assume
+                        //that you've walked into an area of the new beacon.
+                        if(beacons.length > beaconHistory.rangedCount)
+                            $scope.coming();
+                        else
+                            $scope.going();
+                    }
+                });
+                beaconHistory.previousBeacon = currentBeacon;
+            }
+        }
+        beaconHistory.rangedCount = beacons.length;
+
+        // $scope.pendingAction = true;
+        // $scope.showActivityModal();
+    };
+
+    $rootScope.$on("$cordovaLocalNotification:clicked", function(e,notification) {
+        $scope.locationChangeDetected(notification.data, false); //show dialog, don't fire notification
+    });
+
+    //Show the activity selection modal
+	$scope.showActivityModal = function() {
+		$scope.activityModal.show();
+		$cordovaStatusbar.styleColor('black');
+	};
+
+    //Hides the activity selection modal
+	$scope.closeActivityModal = function() {
+		$scope.activityModal.hide();
+		$cordovaStatusbar.styleColor('white');
+	};
+
+    /**
+     * Starts listening for beacons in range
+     * @param  object region
+     */
+    $scope.startRangingBeacons = function(region) {
+    	region = region || {};
+
+        estimote.beacons.startRangingBeaconsInRegion({}, function(response) {
+            //Debug
+            //console.log(response);
+            $scope.activeUUID = response;
+            //Fire location change
+            $scope.locationChangeDetected(response.beacons);
+        }, function(error) {
+            console.log(error);
+        });
+    };
+
+    $scope.stopRangingBeacons = function(region) {
+        region = region || {};
+    };
+
+    $scope.coming = function() {
+
+    	$scope.pendingAction = false;
+        //Grab the metadata for the currently selected location
+        LocationService.get($scope.viewData.selectedLocation).$asObject().$loaded().then(function(location) {
+            var cleanLocation = angular.copy(location);
+            //Define activity
+            var activity = {
+                created_at: moment().format(),
+                location_id: $scope.viewData.selectedLocation,
+                action: 1 //going
+            };
+            //Save to activity log
+            ActivityService.add(activity, $scope.currentUser.uni_auth, location);
+            //Close the modal
+            $scope.closeActivityModal();
+            //Show Notification
+            $cordovaLocalNotification.add({
+              id: "id" + Date.now(),
+              title: "You just entered "+location.title
+              // parameter documentation:
+              // https://github.com/katzer/cordova-plugin-local-notifications#further-informations-1
+            }).then(function () {
+              console.log('Notification fired!');
+            });
+        });
+    };
+
+    $scope.going = function() {
+    	$scope.pendingAction = false;
+    	$scope.user.currently = "Out";
+        //Grab the metadata for the currently selected location
+        LocationService.get($scope.viewData.selectedLocation).$asObject().$loaded().then(function(location) {
+            var cleanLocation = angular.copy(location);
+            //Define activity
+            var activity = {
+                created_at: moment().format(),
+                location_id: $scope.viewData.selectedLocation,
+                action: 0 //leaving
+            };
+        	//Save to activity log
+        	ActivityService.add(activity, $scope.currentUser.uni_auth, location);
+        	//Close the modal
+        	$scope.closeActivityModal();
+            //Show Notification
+            $cordovaLocalNotification.add({
+              id: "id" + Date.now(),
+              title: "You just left "+location.title
+              // parameter documentation:
+              // https://github.com/katzer/cordova-plugin-local-notifications#further-informations-1
+            }).then(function () {
+              console.log('Notification fired!');
+            });
+        });
+    };
+
+    $scope.disregard = function() {
+    	$scope.pendingAction = false;
+    	//Close the modal
+    	$scope.closeActivityModal();
+    };
+});

@@ -129,7 +129,10 @@ function($timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $ionicScroll
           return $ionicHistory.isActiveScope($scope);
         }
       );
-      $scope.$on('$destroy', deregisterInstance);
+      $scope.$on('$destroy', function() {
+        deregisterInstance();
+        slider.kill();
+      });
 
       this.slidesCount = function() {
         return slider.slidesCount();
@@ -149,7 +152,7 @@ function($timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $ionicScroll
       '</div>' +
     '</div>',
 
-    link: function($scope, $element, $attr, slideBoxCtrl) {
+    link: function($scope, $element, $attr) {
       // if showPager is undefined, show the pager
       if (!isDefined($attr.showPager)) {
         $scope.showPager = true;
@@ -178,10 +181,8 @@ function($timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $ionicScroll
   return {
     restrict: 'E',
     require: '^ionSlideBox',
-    compile: function(element, attr) {
+    compile: function(element) {
       element.addClass('slider-slide');
-      return function($scope, $element, $attr) {
-      };
     }
   };
 })

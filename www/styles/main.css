@@ -9787,6 +9787,38 @@ button.item.item-button-right {
 .spinner-spiral.spinner-light .stop2 {
   stop-color: #fff;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/bower_components\/ionic\/scss\/_spinner\.scss}line{font-family:\0000376}}
+.spinner-spiral.spinner-stable .stop2 {
+  stop-color: #f8f8f8;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/bower_components\/ionic\/scss\/_spinner\.scss}line{font-family:\0000379}}
+.spinner-spiral.spinner-positive .stop2 {
+  stop-color: #DA1A32;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/bower_components\/ionic\/scss\/_spinner\.scss}line{font-family:\0000382}}
+.spinner-spiral.spinner-calm .stop2 {
+  stop-color: #43cee6;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/bower_components\/ionic\/scss\/_spinner\.scss}line{font-family:\0000385}}
+.spinner-spiral.spinner-balanced .stop2 {
+  stop-color: #66cc33;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/bower_components\/ionic\/scss\/_spinner\.scss}line{font-family:\0000388}}
+.spinner-spiral.spinner-assertive .stop2 {
+  stop-color: #ef4e3a;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/bower_components\/ionic\/scss\/_spinner\.scss}line{font-family:\0000391}}
+.spinner-spiral.spinner-energized .stop2 {
+  stop-color: #f0b840;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/bower_components\/ionic\/scss\/_spinner\.scss}line{font-family:\0000394}}
+.spinner-spiral.spinner-royal .stop2 {
+  stop-color: #8a6de9;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/hyena_welcome_app\/app\/bower_components\/ionic\/scss\/_spinner\.scss}line{font-family:\0000397}}
+.spinner-spiral.spinner-dark .stop2 {
+  stop-color: #444;
+}
 
 /**
  * Forms
